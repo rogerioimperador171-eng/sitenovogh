@@ -18,7 +18,11 @@ export const Route = createFileRoute("/$")({
     handlers: {
       GET: ({ request }) => {
         const html = lookup(new URL(request.url).pathname);
-        if (!html) throw notFound();
+        if (!html)
+          return new Response("Página não encontrada", {
+            status: 404,
+            headers: { "content-type": "text/plain; charset=utf-8" },
+          });
         return new Response(html, {
           headers: { "content-type": "text/html; charset=utf-8" },
         });
