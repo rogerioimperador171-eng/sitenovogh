@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 
 // All static Steel Max pages, inlined at build time
 const pages = import.meta.glob("../../public/**/index.html", {
